@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aadarash Drug Agency</title>
+<style>
+:root{
+ --bg:#0b0b0d;--panel:#171719;--panel2:#222225;
+ --gold:#d8b15d;--gold2:#f4d995;--text:#f5f5f5;
+ --muted:#aaa;--line:#39393d;--green:#65d69b;--red:#ff8585;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+header{background:#111114;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.container{width:94%;max-width:1250px;margin:auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:15px 0;flex-wrap:wrap}
+.brand{font-size:21px;font-weight:bold;color:var(--gold)}
+.brand small{display:block;font-size:10px;color:#aaa;letter-spacing:2px}
+nav{display:flex;gap:7px;flex-wrap:wrap}
+button{cursor:pointer;font:inherit}
+nav button,.navbtn{background:transparent;color:#ddd;border:1px solid transparent;padding:9px;border-radius:6px}
+nav button:hover,nav button.active{color:var(--gold);border-color:#705b30;background:#272219}
+.btn{background:var(--gold);color:#17130a;border:1px solid var(--gold);padding:10px 14px;border-radius:6px;font-weight:bold}
+.btn:hover{background:var(--gold2)}
+.btn.secondary{background:transparent;color:var(--gold)}
+.btn.gray{background:#303034;border-color:#505055;color:white}
+.btn.danger{background:#592727;border-color:#884444;color:white}
+.hero{padding:65px 0;background:linear-gradient(120deg,#171719,#252116)}
+.hero h1{font-size:clamp(30px,5vw,54px);margin:0 0 12px}
+.hero p{max-width:650px;color:#c5c5c5;line-height:1.7}
+.gold{color:var(--gold)}
+.section{padding:28px 0}
+.section-title{font-size:25px;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:18px}
+.card h3{margin-top:0}
+.stat{font-size:29px;font-weight:bold;color:var(--gold);margin-top:7px}
+.muted{color:var(--muted)}
+.small{font-size:12px;color:var(--muted)}
+input,select,textarea{width:100%;padding:11px;background:#101012;color:white;border:1px solid #444;border-radius:6px;margin:5px 0 13px}
+textarea{min-height:80px;resize:vertical}
+label{font-size:13px;color:#ddd}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.formgrid>div{min-width:0}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{padding:11px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
+th{color:var(--gold);background:#202024}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:8px}
+.hidden{display:none!important}
+.badge{display:inline-block;padding:4px 8px;border-radius:20px;background:#343434;font-size:11px}
+.good{color:var(--green)}.warning{color:var(--gold)}.bad{color:var(--red)}
+.notice{background:#282319;border:1px solid #6e592d;padding:12px;border-radius:7px;color:#e8d6aa;font-size:13px;margin:12px 0}
+.actions{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+footer{border-top:1px solid var(--line);padding:25px 0;color:#aaa;margin-top:35px}
+hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+@media(max-width:700px){.topbar{align-items:flex-start}.nav{width:100%}.nav button{font-size:12px;padding:7px}.hero{padding:40px 0}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="container topbar">
+  <div class="brand">AADARASH <span>DRUG AGENCY</span>
+   <small>MEDICINE WHOLESALE & DISTRIBUTION</small>
+  </div>
+  <nav id="mainNav">
+   <button class="active" onclick="showPage('home',this)">Home</button>
+   <button onclick="showPage('about',this)">About</button>
+   <button onclick="showPage('catalogue',this)">Catalogue</button>
+   <button onclick="showPage('register',this)">Registration</button>
+   <button onclick="showPage('login',this)">Login</button>
+   <button onclick="showPage('contact',this)">Contact</button>
+  </nav>
+ </div>
+</header>
+
+<main class="container">
+
+<!-- HOME -->
+<section id="home" class="page">
+ <div class="hero">
+  <h1>Welcome to <span class="gold">Aadarash Drug Agency</span></h1>
+  <p>Medicine Wholesale & Distribution Agency. A business management platform for authorized distributors and retail medical stores.</p>
+  <div class="actions">
+   <button class="btn" onclick="showPage('register')">Retailer Registration</button>
+   <button class="btn secondary" onclick="showPage('catalogue')">View Catalogue</button>
+  </div>
+ </div>
+ <div class="section">
+  <h2 class="section-title">Our Services</h2>
+  <div class="grid">
+   <div class="card"><h3 class="gold">Medicine Catalogue</h3><p class="muted">Browse product information and categories.</p></div>
+   <div class="card"><h3 class="gold">Retailer Support</h3><p class="muted">Retailer registration and account dashboard.</p></div>
+   <div class="card"><h3 class="gold">Stock Management</h3><p class="muted">Track batch, manufacturing and expiry details.</p></div>
+   <div class="card"><h3 class="gold">Business Reports</h3><p class="muted">View order and sales records.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="page hidden section">
+ <h2 class="section-title">About Our Agency</h2>
+ <div class="card">
+  <h2 class="gold">Aadarash Drug Agency</h2>
+  <p>We are building a wholesale and distribution management platform for authorized medicine distributors and retail medical stores.</p>
+  <p><b>Business:</b> Medicine Wholesale & Distribution</p>
+  <p><b>Customers:</b> Retail Medical Stores</p>
+  <p><b>Theme:</b> Black, Gold & Grey</p>
+  <p><b>Services:</b> Product records, stock management, retailer support and business documentation.</p>
+ </div>
+</section>
+
+<!-- CATALOGUE -->
+<section id="catalogue" class="page hidden section">
+ <h2 class="section-title">Medicine Products Catalogue</h2>
+ <div class="notice">Catalogue information is for authorized business users. Verify product authorization, licence requirements and applicable rules before any transaction.</div>
+ <div class="formgrid">
+  <div><label>Search Product</label><input id="searchProduct" placeholder="Search product or company..." oninput="renderProducts()"></div>
+  <div><label>Medicine Category</label><select id="filterCategory" onchange="renderProducts()"><option value="">All Categories</option><option>General</option><option>Healthcare</option><option>Other</option></select></div>
+ </div>
+ <div id="productCards" class="grid"></div>
+ <hr>
+ <h3 class="gold">Wholesale Price List / Stock Availability</h3>
+ <p class="small">Wholesale pricing is shown only in this demo interface. Configure verified retailer access before displaying confidential prices in a live website.</p>
+ <div id="catalogueTable" class="tablewrap"></div>
+</section>
+
+<!-- REGISTRATION -->
+<section id="register" class="page hidden section">
+ <h2 class="section-title">Retailer / Distributor Registration</h2>
+ <div class="card">
+  <form id="registerForm">
+   <div class="formgrid">
+    <div><label>Business / Medical Store Name</label><input id="regStore" required></div>
+    <div><label>Owner Name</label><input id="regOwner" required></div>
+    <div><label>Mobile Number</label><input id="regPhone" maxlength="10" required></div>
+    <div><label>Email</label><input id="regEmail" type="email"></div>
+    <div><label>GST Number (if applicable)</label><input id="regGST"></div>
+    <div><label>Drug Licence Number</label><input id="regLicence" required></div>
+    <div><label>Business Type</label><select id="regType"><option>Retail Medical Store</option><option>Distributor</option></select></div>
+    <div><label>City</label><input id="regCity" required></div>
+   </div>
+   <label>Full Address</label><textarea id="regAddress" required></textarea>
+   <button class="btn">Submit Registration Request</button>
+  </form>
+  <p class="small">Submitting this form creates a local demo request, not a verified licence or approved account.</p>
+ </div>
+</section>
+
+<!-- LOGIN -->
+<section id="login" class="page hidden section">
+ <h2 class="section-title">Login</h2>
+ <div class="grid">
+  <div class="card">
+   <h3 class="gold">Retailer Login</h3>
+   <label>Registered Mobile Number</label><input id="retailerLoginPhone" maxlength="10" placeholder="10 digit mobile">
+   <button class="btn" onclick="retailerLogin()">Continue as Demo Retailer</button>
+  </div>
+  <div class="card">
+   <h3 class="gold">Admin Demo Login</h3>
+   <label>Demo Password</label><input id="adminPassword" type="password" placeholder="Enter demo password">
+   <button class="btn" onclick="adminLogin()">Admin Login</button>
+   <p class="small">Demo password: admin123</p>
+  </div>
+ </div>
+ <div class="notice">Demo only: This front-end password check is not secure authentication. Do not use it to protect real business or customer data.</div>
+</section>
+
+<!-- RETAILER DASHBOARD -->
+<section id="retailer" class="page hidden section">
+ <div class="actions" style="justify-content:space-between">
+  <h2 class="section-title">Retailer Dashboard</h2><button class="btn gray" onclick="logout()">Logout</button>
+ </div>
+ <div id="retailerWelcome" class="card"></div>
+ <div class="grid section">
+  <div class="card"><h3>My Order Requests</h3><div class="stat" id="retOrderCount">0</div></div>
+  <div class="card"><h3>Purchase History</h3><div class="stat" id="retHistoryCount">0</div></div>
+ </div>
+ <h3 class="gold">Create Order Enquiry</h3>
+ <div class="card">
+  <form id="orderForm">
+   <label>Product Name / Catalogue Reference</label><input id="orderProduct" required>
+   <div class="formgrid">
+    <div><label>Quantity Requested</label><input id="orderQty" type="number" min="1" required></div>
+    <div><label>Required Date</label><input id="orderDate" type="date"></div>
+   </div>
+   <label>Notes</label><textarea id="orderNotes"></textarea>
+   <button class="btn">Submit Order Enquiry</button>
+  </form>
+  <p class="small">This submits an enquiry only. It is not a confirmed medicine order or sale.</p>
+ </div>
+ <h3 class="gold">My Order Requests / Purchase History</h3>
+ <div id="retailerOrders" class="tablewrap"></div>
+ <h3 class="gold">Invoice Preview</h3>
+ <div class="card">
+  <label>Enter Invoice / Order ID</label><input id="invoiceOrderId" placeholder="Order ID">
+  <button class="btn" onclick="makeInvoice()">Generate Invoice Preview</button>
+  <div id="invoiceOutput"></div>
+ </div>
+</section>
+
+<!-- ADMIN DASHBOARD -->
+<section id="admin" class="page hidden section">
+ <div class="actions" style="justify-content:space-between">
+  <h2 class="section-title">Admin Dashboard</h2><button class="btn gray" onclick="logout()">Logout</button>
+ </div>
+ <div class="grid">
+  <div class="card">Products<div class="stat" id="statProducts">0</div></div>
+  <div class="card">Retailers<div class="stat" id="statRetailers">0</div></div>
+  <div class="card">Order Enquiries<div class="stat" id="statOrders">0</div></div>
+  <div class="card">Expiry Alerts<div class="stat" id="statExpiry">0</div></div>
+ </div>
+
+ <div class="section">
+  <h3 class="gold">Stock Management — Add Product</h3>
+  <div class="card">
+   <form id="productForm">
+    <div class="formgrid">
+     <div><label>Product Name</label><input id="pName" required></div>
+     <div><label>Company / Manufacturer</label><input id="pCompany" required></div>
+     <div><label>Category</label><select id="pCategory"><option>General</option><option>Healthcare</option><option>Other</option></select></div>
+     <div><label>Batch Number</label><input id="pBatch" required></div>
+     <div><label>Manufacturing Date</label><input id="pMfg" type="date" required></div>
+     <div><label>Expiry Date</label><input id="pExpiry" type="date" required></div>
+     <div><label>Stock Quantity</label><input id="pStock" type="number" min="0" required></div>
+     <div><label>Unit</label><select id="pUnit"><option>Box</option><option>Strip</option><option>Piece</option><option>Bottle</option></select></div>
+     <div><label>Wholesale Price (₹)</label><input id="pPrice" type="number" min="0" step="0.01"></div>
+    </div>
+    <button class="btn">Save Product</button>
+   </form>
+  </div>
+  <div id="adminProducts" class="tablewrap"></div>
+ </div>
+
+ <div class="section">
+  <h3 class="gold">Retailer Registration Requests</h3>
+  <div id="adminRetailers" class="tablewrap"></div>
+ </div>
+ <div class="section">
+  <h3 class="gold">Order Management</h3>
+  <div id="adminOrders" class="tablewrap"></div>
+ </div>
+ <div class="section">
+  <h3 class="gold">Sales Reports</h3>
+  <div class="grid">
+   <div class="card">Total Order Enquiries<div class="stat" id="reportOrders">0</div></div>
+   <div class="card">Approved Requests<div class="stat" id="reportApproved">0</div></div>
+   <div class="card">Total Recorded Value<div class="stat" id="reportValue">₹0</div></div>
+  </div>
+  <button class="btn" onclick="downloadReport()">Download CSV Report</button>
+ </div>
+ <div class="section">
+  <h3 class="gold">GST / Agency Details</h3>
+  <div class="card">
+   <div class="formgrid">
+    <div><label>Agency GSTIN</label><input id="agencyGST" placeholder="Enter agency GSTIN"></div>
+    <div><label>Agency Address</label><input id="agencyAddress" placeholder="Enter registered address"></div>
+    <div><label>Agency Contact</label><input id="agencyPhone" placeholder="Contact number"></div>
+   </div>
+   <button class="btn" onclick="saveAgency()">Save Agency Details</button>
+  </div>
+ </div>
+ <div class="section">
+  <h3 class="gold">Payment Gateway</h3>
+  <div class="notice">Payment Gateway integration is not activated in this demo. A live gateway must be set up through an authorized provider with a secure backend. Never collect card numbers, UPI PINs or passwords in this demo.</div>
+  <button class="btn gray" disabled>Payment Gateway — Not Connected</button>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="page hidden section">
+ <h2 class="section-title">Contact & Support</h2>
+ <div class="grid">
+  <div class="card">
+   <h3 class="gold">Aadarash Drug Agency</h3>
+   <p>Medicine Wholesale & Distribution</p>
+   <p>Phone: <span id="contactPhone">Add contact number in Admin Dashboard</span></p>
+   <p>Email: Add your official business email</p>
+   <p>Address: Add your agency address</p>
+  </div>
+  <div class="card">
+   <h3 class="gold">WhatsApp Enquiry</h3>
+   <label>Your Mobile Number</label><input id="waPhone" maxlength="10" placeholder="10 digit number">
+   <label>Message</label><textarea id="waMessage">Hello Aadarash Drug Agency, I would like to enquire about your business services.</textarea>
+   <button class="btn" onclick="sendWhatsApp()">Open WhatsApp</button>
+  </div>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div class="container">
+  <b class="gold">AADARASH DRUG AGENCY</b>
+  <p>Medicine Wholesale & Distribution</p>
+  <p class="small">© <span id="year"></span> Aadarash Drug Agency. Business demo website.</p>
+ </div>
+</footer>
+
+<script>
+const get=(key,def=[])=>JSON.parse(localStorage.getItem(key)||JSON.stringify(def));
+const put=(key,val)=>localStorage.setItem(key,JSON.stringify(val));
+let products=get("ada_products");
+let retailers=get("ada_retailers");
+let orders=get("ada_orders");
+let currentRetailer=null;
+let isAdmin=false;
+
+function id(){return "ADA"+Date.now().toString().slice(-8)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function showPage(page,button){
+ document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));
+ document.getElementById(page)?.classList.remove("hidden");
+ document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+ if(button)button.classList.add("active");
+ if(page==="catalogue")renderProducts();
+ if(page==="admin"&&isAdmin)renderAdmin();
+ if(page==="retailer"&&currentRetailer)renderRetailer();
+ window.scrollTo(0,0);
+}
+function saveAll(){
+ put("ada_products",products);put("ada_retailers",retailers);put("ada_orders",orders);
+}
+function productStatus(p){
+ const today=new Date();today.setHours(0,0,0,0);
+ const expiry=new Date(p.expiry+"T00:00:00");
+ const days=Math.ceil((expiry-today)/86400000);
+ if(days<0)return '<span class="bad">Expired</span>';
+ if(days<=90)return '<span class="warning">Expiring Soon</span>';
+ if(Number(p.stock)<=10)return '<span class="warning">Low Stock</span>';
+ return '<span class="good">Available</span>';
+}
+function renderProducts(){
+ const term=(document.getElementById("searchProduct")?.value||"").toLowerCase();
+ const cat=document.getElementById("filterCategory")?.value||"";
+ const list=products.filter(p=>(p.name+" "+p.company).toLowerCase().includes(term)&&(!cat||p.category===cat));
+ document.getElementById("productCards").innerHTML=list.length?list.map(p=>`
+ <div class="card"><h3 class="gold">${esc(p.name)}</h3>
+ <p class="muted">${esc(p.company)}</p><p>Category: ${esc(p.category)}</p>
+ <p>Stock: ${esc(p.stock)} ${esc(p.unit)}</p><p>Status: ${productStatus(p)}</p>
+ </div>`).join(""):'<div class="card">No matching products found.</div>';
+ document.getElementById("catalogueTable").innerHTML=table(["Product","Company","Batch","Expiry","Stock","Status"],list.map(p=>[p.name,p.company,p.batch,p.expiry,p.stock+" "+p.unit,productStatus(p)]));
+}
+function table(headers,rows){
+ if(!rows.length)return "<p class='card muted'>No records available.</p>";
+ return `<div class="tablewrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c??""}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+document.getElementById("productForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const p={id:id(),name:pName.value.trim(),company:pCompany.value.trim(),category:pCategory.value,batch:pBatch.value.trim(),mfg:pMfg.value,expiry:pExpiry.value,stock:Number(pStock.value),unit:pUnit.value,price:Number(pPrice.value||0)};
+ if(p.expiry<p.mfg){alert("Expiry date cannot be earlier than manufacturing date.");return}
+ products.push(p);saveAll();e.target.reset();renderAdmin();renderProducts();alert("Product saved.");
+});
+function renderAdmin(){
+ statProducts.textContent=products.length;
+ statRetailers.textContent=retailers.length;
+ statOrders.textContent=orders.length;
+ statExpiry.textContent=products.filter(p=>{let d=(new Date(p.expiry)-new Date())/86400000;return d<=90}).length;
+ adminProducts.innerHTML=table(["Product","Company","Batch","MFG","Expiry","Stock","Price","Status","Action"],products.map(p=>[
+ esc(p.name),esc(p.company),esc(p.batch),p.mfg,p.expiry,p.stock+" "+esc(p.unit),"₹"+p.price,productStatus(p),
+ `<button class="btn danger" onclick="deleteProduct('${p.id}')">Delete</button>`
+ ]));
+ adminRetailers.innerHTML=table(["Store","Owner","Phone","Licence","GST","City","Status"],retailers.map(r=>[
+ esc(r.store),esc(r.owner),esc(r.phone),esc(r.licence),esc(r.gst),esc(r.city),esc(r.status||"Pending")
+ ]));
+ adminOrders.innerHTML=table(["Order ID","Retailer","Product","Qty","Date","Status","Action"],orders.map(o=>[
+ o.id,esc(o.store),esc(o.product),o.qty,esc(o.date||""),esc(o.status),
+ `<button class="btn" onclick="setOrderStatus('${o.id}','Approved')">Approve</button> <button class="btn gray" onclick="setOrderStatus('${o.id}','Rejected')">Reject</button>`
+ ]));
+ reportOrders.textContent=orders.length;
+ reportApproved.textContent=orders.filter(o=>o.status==="Approved").length;
+ reportValue.textContent="₹"+orders.filter(o=>o.status==="Approved").reduce((s,o)=>s+(Number(o.value)||0),0);
+}
+function deleteProduct(pid){
+ if(!confirm("Delete this product record?"))return;
+ products=products.filter(p=>p.id!==pid);saveAll();renderAdmin();renderProducts();
+}
+function setOrderStatus(oid,status){
+ const o=orders.find(x=>x.id===oid);if(!o)return;
+ o.status=status;saveAll();renderAdmin();renderRetailer();
+}
+document.getElementById("registerForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const phone=regPhone.value.trim();
+ if(!/^[0-9]{10}$/.test(phone)){alert("Enter a valid 10 digit mobile number.");return}
+ if(retailers.some(r=>r.phone===phone)){alert("This mobile number is already registered.");return}
+ retailers.push({id:id(),store:regStore.value.trim(),owner:regOwner.value.trim(),phone,email:regEmail.value,gst:regGST.value,licence:regLicence.value,type:regType.value,city:regCity.value,address:regAddress.value,status:"Pending"});
+ saveAll();e.target.reset();alert("Registration request submitted. Admin verification is required.");
+});
+function retailerLogin(){
+ const phone=retailerLoginPhone.value.trim();
+ const r=retailers.find(x=>x.phone===phone);
+ if(!r){alert("Retailer not found. Submit registration first.");return}
+ if(r.status!=="Approved"){alert("Your registration is pending admin verification.");return}
+ currentRetailer=r;isAdmin=false;showPage("retailer");renderRetailer();
+}
+function adminLogin(){
+ if(adminPassword.value!=="admin123"){alert("Incorrect demo password.");return}
+ isAdmin=true;currentRetailer=null;showPage("admin");renderAdmin();
+}
+function logout(){currentRetailer=null;isAdmin=false;showPage("home")}
+function renderRetailer(){
+ if(!currentRetailer)return;
+ retailerWelcome.innerHTML=`<h3 class="gold">Welcome, ${esc(currentRetailer.owner)}</h3><p>${esc(currentRetailer.store)}</p><p>Mobile: ${esc(currentRetailer.phone)}</p><p>Account: ${esc(currentRetailer.status)}</p>`;
+ const mine=orders.filter(o=>o.phone===currentRetailer.phone);
+ retOrderCount.textContent=mine.length;
+ retHistoryCount.textContent=mine.filter(o=>o.status==="Approved").length;
+ retailerOrders.innerHTML=table(["Order ID","Product","Qty","Date","Status"],mine.map(o=>[o.id,esc(o.product),o.qty,esc(o.date||""),esc(o.status)]));
+}
+document.getElementById("orderForm").addEventListener("submit",e=>{
+ e.preventDefault();if(!currentRetailer)return;
+ orders.push({id:id(),phone:currentRetailer.phone,store:currentRetailer.store,product:orderProduct.value.trim(),qty:Number(orderQty.value),date:orderDate.value,notes:orderNotes.value,status:"Pending",value:0});
+ saveAll();e.target.reset();renderRetailer();alert("Order enquiry submitted. It is not yet a confirmed order.");
+});
+function makeInvoice(){
+ const oid=invoiceOrderId.value.trim();
+ const o=orders.find(x=>x.id===oid&&x.phone===currentRetailer?.phone);
+ if(!o){invoiceOutput.innerHTML="<p class='bad'>Order not found in your account.</p>";return}
+ if(o.status!=="Approved"){invoiceOutput.innerHTML="<p class='warning'>This enquiry is not approved. A tax invoice cannot be generated.</p>";return}
+ const agency=get("ada_agency",{});
+ invoiceOutput.innerHTML=`<div class="card" id="invoicePrint"><h2 class="gold">INVOICE PREVIEW</h2><h3>Aadarash Drug Agency</h3><p>${esc(agency.address||"Agency address not configured")}</p><p>GSTIN: ${esc(agency.gst||"Not configured")}</p><hr><p>Invoice Reference: ${o.id}</p><p>Retailer: ${esc(o.store)}</p><p>Product: ${esc(o.product)}</p><p>Quantity: ${o.qty}</p><p>Status: ${o.status}</p><p class="small">This is a demo preview, not a valid tax invoice. Configure a compliant invoicing system and verify tax details before issuing invoices.</p><button class="btn" onclick="window.print()">Print Preview</button></div>`;
+}
+function saveAgency(){
+ put("ada_agency",{gst:agencyGST.value,address:agencyAddress.value,phone:agencyPhone.value});
+ contactPhone.textContent=agencyPhone.value||"Not provided";
+ alert("Agency details saved in this browser.");
+}
+function sendWhatsApp(){
+ const phone=waPhone.value.trim();
+ if(!/^[0-9]{10}$/.test(phone)){alert("Enter a valid 10 digit Indian mobile number.");return}
+ const url="https://wa.me/91"+phone+"?text="+encodeURIComponent(waMessage.value);
+ window.open(url,"_blank");
+}
+function downloadReport(){
+ const rows=[["Order ID","Retailer","Phone","Product","Quantity","Date","Status"],...orders.map(o=>[o.id,o.store,o.phone,o.product,o.qty,o.date,o.status])];
+ const csv=rows.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\n");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="aadarash-orders-report.csv";a.click();URL.revokeObjectURL(a.href);
+}
+function sendRegistrationStatus(phone,status){
+ const r=retailers.find(x=>x.phone===phone);if(!r)return;
+ r.status=status;saveAll();renderAdmin();
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+const savedAgency=get("ada_agency",{});
+agencyGST.value=savedAgency.gst||"";
+agencyAddress.value=savedAgency.address||"";
+agencyPhone.value=savedAgency.phone||"";
+contactPhone.textContent=savedAgency.phone||"Add contact number in Admin Dashboard";
+renderProducts();
+</script>
+</body>
+</html>
